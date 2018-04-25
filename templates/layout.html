@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{% block title %}{% endblock %}</title>
+	<style>
+	{% block style %}{% endblock %}
+	#menu {
+		height: 100px;
+		width: 798px;
+		margin: 0 auto;
+		margin-top: -10px;
+		background-color: white;
+		border: 1px solid blue;
+		border-bottom-left-radius: 10px;
+		border-bottom-right-radius: 10px;
+	}
+	.inside {
+		width: 266px;
+		height: 100px;
+		float: left;
+		border-bottom-left-radius: 10px;
+		border-bottom-right-radius: 10px;
+		text-align: center;
+		vertical-align: middle;
+		line-height: 100px;
+	}
+	.inside:hover {
+		background-color: lightgray;
+		color: floral-white;
+	}
+	a {
+		color: black;
+	}
+	a:visited {
+		color: black;
+	}
+	a{
+		text-decoration: none;
+		cursor: pointer;
+	}
+	body {
+		background-color: antiquewhite;
+	}
+	h1 {
+		text-align: center;
+	}
+	div {
+		font-size: 18px;
+	}
+	</style>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+</head>
+
+<body>
+{% block body %}
+{% endblock %}
+</body>
+</html>

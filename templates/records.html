@@ -1,0 +1,73 @@
+{% extends "layout.html" %}
+
+{% block title %}
+RECORDS
+{% endblock %}
+
+{% block style %}
+body {
+	background-color: bisque;
+}
+#wrap {
+	width: 410px;
+	margin: 0 auto;
+	text-align: center;
+	padding-top: 20px;
+}
+#main {
+    position: absolute; 
+	right: 10px;
+	top: 10px;
+	text-align: center;
+	font-size: 20px;
+	font-style: italic;
+	width: 150px;
+	height: 22px;
+	background-color: aqua;
+	border: 1px solid black
+}
+#current {
+	color: white;
+	background-color: aqua;
+}
+#current:hover {
+	cursor: default;
+}
+{% endblock %}
+
+{% block body %}
+<div id="menu">
+<a onclick="return false;"><div class="inside" id="current">
+Records
+</div></a>
+{% if name==0 %}
+    <a href='/login'><div class="inside">
+    Log in
+    </div></a>
+    <a href='/register'><div class="inside">
+    Register
+    </div></a>
+{% else %}
+    <a href='/profile'><div class="inside">
+    My profile
+    </div></a>
+    <a href='/logout'><div class="inside">
+    Log out
+    </div></a>
+{% endif %}
+</div>
+<a href="../games"><div id="main">To the main page</div></a>
+
+<div id="wrap">
+<h2>OUR BEST USERS</h2><br>
+<p>Tic-Tac-Toe most games won: {{ ttt_best }}</p>
+{% for user in ttt_users %}
+{{ user }}<br>
+{% endfor %}
+<br>
+<p>Snake best result: {{ snake_best }}</p>
+{% for user in snake_users %}
+{{ user }}<br>
+{% endfor %}
+</div>
+{% endblock %}
