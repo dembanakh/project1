@@ -1,0 +1,77 @@
+{% extends "layout.html" %}
+
+{% block title %}
+{{ name }}
+{% endblock %}
+
+{% block style %}
+body {
+	background-color: bisque;
+}
+#wrap {
+	width: 410px;
+	margin: 0 auto;
+	text-align: center;
+	padding-top: 20px;
+}
+#main {
+    position: absolute; 
+	right: 10px;
+	top: 10px;
+	text-align: center;
+	font-size: 20px;
+	font-style: italic;
+	width: 150px;
+	height: 22px;
+	background-color: aqua;
+	border: 1px solid black
+}
+#current {
+	color: white;
+	background-color: aqua;
+}
+#current:hover {
+cursor: default;
+}
+#setts {
+margin-top: 50px;
+padding: 15px;
+background-color: lightgreen;
+}
+#setts a {
+color: red;
+font: 1.2em;
+}
+{% endblock %}
+
+{% block body %}
+<div id="menu">
+<a href='/records'><div class="inside">
+Records
+</div></a>
+{% if name==0 %}
+    <a href='/login'><div class="inside">
+    Log in
+    </div></a>
+    <a href='/register'><div class="inside">
+    Register
+    </div></a>
+{% else %}
+    <a onclick="return false;"><div class="inside" id="current">
+    My profile
+    </div></a>
+    <a href='/logout'><div class="inside">
+    Log out
+    </div></a>
+{% endif %}
+</div>
+<a href="../games"><div id="main">To the main page</div></a>
+
+<div id="wrap">
+<p>Tic-Tac-Toe wins: </p>{{ ttt }}
+<br>
+<p>Snake best result: </p>{{ snake }}
+<br><br>
+<button id="setts"><a href='/settings'>SETTINGS</a></button>
+</div>
+{% endblock %}
